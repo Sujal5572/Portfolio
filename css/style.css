@@ -1,0 +1,115 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Header Styles */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Section Styles */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+/* List Styles */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #e8f5e9;
+    color: #333;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Resume Link */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Chatbot Section */
+#chatbot-container {
+    border: 2px dashed #4CAF50;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #666;
+}
+
+#chatbot-container p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        width: 90%;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
