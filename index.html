@@ -15,6 +15,19 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
+        /* Custom scrollbar styles for the chat window */
+        .chat-history::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chat-history::-webkit-scrollbar-track {
+            background: #1f2937;
+            border-radius: 10px;
+        }
+        .chat-history::-webkit-scrollbar-thumb {
+            background-color: #4b5563;
+            border-radius: 10px;
+            border: 2px solid #1f2937;
+        }
     </style>
 </head>
 <body class="bg-gray-950 text-gray-200">
@@ -230,5 +243,244 @@
         </div>
     </footer>
 
+    <!-- Chatbot Widget -->
+    <div class="fixed bottom-6 right-6 z-[100]">
+        <!-- Chatbot Button -->
+        <button id="chat-button" class="bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-full p-4 shadow-lg hover:shadow-teal-500/50 transition-all duration-300 transform hover:scale-110">
+            <!-- Chat Icon SVG -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+        </button>
+
+        <!-- Chatbot Window -->
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 h-[450px] bg-gray-800 rounded-xl shadow-2xl flex flex-col overflow-hidden">
+            <div class="flex-shrink-0 flex items-center justify-between p-4 bg-gray-900 border-b border-gray-700">
+                <div class="text-white font-bold">Chat with Sujal</div>
+                <button id="close-chat-button" class="text-gray-400 hover:text-white">
+                    <!-- Close Icon SVG -->
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Chat history display area -->
+            <div id="chat-history" class="flex-grow p-4 overflow-y-auto space-y-4 chat-history">
+                <div class="flex justify-start">
+                    <div class="bg-gray-700 text-white rounded-xl p-3 max-w-[80%]">
+                        Hello! I'm Sujal's portfolio assistant. Feel free to ask me anything about his skills or projects.
+                    </div>
+                </div>
+            </div>
+
+            <!-- User input area -->
+            <div class="flex-shrink-0 p-4 bg-gray-900 border-t border-gray-700">
+                <form id="chat-form" class="flex">
+                    <input type="text" id="chat-input" class="flex-grow rounded-full px-4 py-2 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Ask a question..." autocomplete="off">
+                    <button type="submit" id="send-button" class="ml-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-full p-2.5 hover:from-teal-400 hover:to-cyan-400 transition-colors">
+                        <!-- Send Icon SVG -->
+                        <svg class="w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Store resume data as a string to provide context to the chatbot
+        const resumeData = `
+        Sujal Arya
+        Bachelor of Technology
+        Electronics and Communication Engineering
+        National Institute Of Technology, Patna
+        +91-8235217483
+        sujalarya17@gmail.com
+        GitHub Profile: https://github.com/Sujal5572
+        LinkedIn Profile: https://www.linkedin.com/in/sujal-arya-39a3b4229/
+        EDUCATION
+        National Institute of Technology: B.Tech, Electronics and Communication Engineering, CGPA: 7.85 (2025)
+        R.P.S Public School, Patna: Central Board of Secondary Education, Bihar, Percentage: 80 (2021)
+        R.P.S Public School, Patna: Central Board of Secondary Education, Bihar, Percentage: 88 (2019)
+        EXPERIENCE
+        NIELIT: Intern (Jan-July 2025)
+        - Worked on real-world applications and projects, applying AI/MI models for data analysis and automation.
+        - Learned cybersecurity fundamentals, including risk assessment and security best practices.
+        PERSONAL PROJECTS
+        Stock Price Prediction: Built a deep learning model using LSTM networks to predict future stock prices. Used Python, Keras, TensorFlow, Streamlit, yFinance, NumPy, Matplotlib. Project Link: https://github.com/Sujal5572/Stock-Price-Prediction-Model.git
+        Social Media Website: A full-stack social media platform with user authentication and interactive content. Used NodeJs, MySQL, React.Js, React-Query, Context API. Project Link: https://github.com/Sujal5572/Social-Site.git
+        Flixx (Movie Website): A responsive web application for browsing movie information. Used HTML, CSS, JavaScript. Project Link: https://grand-pavlova-07817b.netlify.app/
+        TECHNICAL SKILLS
+        Languages: Java, Python, HTML, CSS, JavaScript
+        Frameworks/Libraries: React, SpringBoot, Node.js, Keras, TensorFlow, React-Query, Context API
+        Developer Tools: IntelliJ IDEA, GitHub, Vs Code
+        Database Management System: MySQL
+        Soft Skills: Teamwork, Creativity, Time Management, Problem Solving, Conceptual Thinking
+        ACHIEVEMENTS
+        - Among top 5 percent students course "Programming in Java" held by IIT Kharagpur (Jan-April 2023).
+        - 1st runner-up (Football) Inter School Sports And Games Competition (2018-19).
+        CODING PROFILE
+        - Solved 450+ problems on LeetCode and GFG (Max Rating: 1704) Username: sujalarya
+        `;
+
+        // UI element references
+        const chatButton = document.getElementById('chat-button');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChatButton = document.getElementById('close-chat-button');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatHistory = document.getElementById('chat-history');
+
+        // Toggle chat window visibility
+        chatButton.addEventListener('click', () => {
+            chatWindow.classList.toggle('hidden');
+        });
+
+        // Close chat window
+        closeChatButton.addEventListener('click', () => {
+            chatWindow.classList.add('hidden');
+        });
+
+        // Handle form submission
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userMessage = chatInput.value.trim();
+            if (userMessage) {
+                // Add user message to chat history
+                addMessageToChat(userMessage, 'user');
+                chatInput.value = '';
+
+                // Add a loading indicator for the bot's response
+                const loadingMessage = addMessageToChat('...', 'bot');
+                
+                try {
+                    // Call the API with exponential backoff
+                    const response = await callGeminiAPI(userMessage);
+                    // Update the loading message with the actual response
+                    updateMessage(loadingMessage, response);
+                } catch (error) {
+                    console.error('Error fetching from Gemini API:', error);
+                    updateMessage(loadingMessage, "Sorry, I'm having trouble connecting right now. Please try again later.");
+                }
+            }
+        });
+
+        /**
+         * Appends a new message bubble to the chat history.
+         * @param {string} message The text content of the message.
+         * @param {string} sender The sender of the message ('user' or 'bot').
+         * @returns {HTMLElement} The created message element.
+         */
+        function addMessageToChat(message, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('flex', 'mb-2');
+            
+            const messageBubble = document.createElement('div');
+            messageBubble.classList.add('p-3', 'rounded-xl', 'max-w-[80%]');
+            messageBubble.textContent = message;
+
+            if (sender === 'user') {
+                messageDiv.classList.add('justify-end');
+                messageBubble.classList.add('bg-cyan-600', 'text-white');
+            } else {
+                messageDiv.classList.add('justify-start');
+                messageBubble.classList.add('bg-gray-700', 'text-white');
+            }
+
+            messageDiv.appendChild(messageBubble);
+            chatHistory.appendChild(messageDiv);
+            chatHistory.scrollTop = chatHistory.scrollHeight; // Auto-scroll to the bottom
+            return messageBubble; // Return the bubble element for potential updates
+        }
+
+        /**
+         * Updates the text content of a message bubble.
+         * @param {HTMLElement} messageElement The message element to update.
+         * @param {string} newMessage The new text content.
+         */
+        function updateMessage(messageElement, newMessage) {
+            messageElement.textContent = newMessage;
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        /**
+         * Calls the Gemini API with the given prompt, including exponential backoff.
+         * @param {string} prompt The user's prompt.
+         * @returns {Promise<string>} The chatbot's response text.
+         */
+        async function callGeminiAPI(userPrompt) {
+            const apiKey = "AIzaSyB7syq2W-UvbM1n-gZCAlXCem3TH68XUyA"; // Canvas will provide this at runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const fullPrompt = `You are a chatbot representing Sujal Arya. Your goal is to answer questions about him based on the following resume data. Do not make up any information. If a question cannot be answered from the resume, politely state that you do not have that information.
+
+            Here is the resume content:
+            """
+            ${resumeData}
+            """
+
+            The user's question is: "${userPrompt}"`;
+            
+            const payload = {
+                contents: [{
+                    role: "user",
+                    parts: [{ text: fullPrompt }]
+                }],
+            };
+
+            let response;
+            let result;
+            let retryDelay = 1000; // 1 second
+            const maxRetries = 5;
+
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (response.status === 429) { // Too Many Requests
+                        if (i < maxRetries - 1) {
+                            await new Promise(resolve => setTimeout(resolve, retryDelay));
+                            retryDelay *= 2; // Exponential backoff
+                            continue; // Retry the request
+                        } else {
+                            throw new Error('Too many requests, max retries exceeded.');
+                        }
+                    }
+                    
+                    if (!response.ok) {
+                        throw new Error(`API call failed with status: ${response.status}`);
+                    }
+                    
+                    result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        return text;
+                    } else {
+                        throw new Error('Unexpected API response structure or no content.');
+                    }
+                } catch (error) {
+                    console.error('API call attempt failed:', error);
+                    if (i < maxRetries - 1 && error.message.includes('API call failed with status: 429')) {
+                        await new Promise(resolve => setTimeout(resolve, retryDelay));
+                        retryDelay *= 2;
+                        continue;
+                    } else {
+                        throw error;
+                    }
+                }
+            }
+            throw new Error('API call failed after multiple retries.');
+        }
+
+    </script>
 </body>
 </html>
