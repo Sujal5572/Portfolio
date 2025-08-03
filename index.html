@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujal Arya - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900 sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500 hover:from-teal-300 hover:to-cyan-400 transition-colors duration-300">
+                Sujal Arya
+            </a>
+            <div class="flex space-x-6">
+                <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-teal-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-teal-400 transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-teal-400 transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 mt-8 lg:mt-16">
+
+        <!-- Hero/About Section -->
+        <section id="about" class="py-16 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight text-white mb-4">
+                    Hello, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500">Sujal Arya</span>.
+                </h1>
+                <p class="text-xl lg:text-2xl text-gray-400 mb-8">
+                    A dedicated Electronics and Communication Engineering student with a passion for web development and problem-solving.
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://github.com/Sujal5572" target="_blank" class="flex items-center space-x-2 text-gray-300 hover:text-teal-400 transition-colors">
+                        <!-- GitHub Icon SVG -->
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.417 2.865 8.169 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.853-.013-1.67-2.782.601-3.37-1.336-3.37-1.336-.454-1.152-1.11-1.458-1.11-1.458-.908-.621.069-.608.069-.608 1.004.07 1.532 1.03 1.532 1.03.89 1.528 2.34 1.087 2.91.832.091-.645.349-1.087.633-1.336-2.22-.253-4.555-1.107-4.555-4.904 0-1.087.389-1.977 1.026-2.672-.103-.253-.444-1.264.098-2.632 0 0 .84-.268 2.75 1.025A9.68 9.68 0 0112 7.64c.85.006 1.7.112 2.5.324 1.908-1.293 2.747-1.025 2.747-1.025.542 1.368.201 2.379.099 2.632.64.695 1.026 1.585 1.026 2.672 0 3.805-2.338 4.65-4.564 4.903.359.31.678.922.678 1.855 0 1.336-.012 2.415-.012 2.74 0 .269.18.58.688.484C20.138 20.185 23 16.433 23 12.017 23 6.484 18.522 2 13 2H12z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="font-semibold">GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sujal-arya-39a3b4229/" target="_blank" class="flex items-center space-x-2 text-gray-300 hover:text-teal-400 transition-colors">
+                        <!-- LinkedIn Icon SVG -->
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.766s.784-1.766 1.75-1.766 1.75.79 1.75 1.766-.783 1.766-1.75 1.766zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        <span class="font-semibold">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-16">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center text-white mb-10">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Languages -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-teal-500/20 transition-shadow">
+                    <h3 class="text-xl font-semibold text-teal-400 mb-3">Languages</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                </div>
+                <!-- Frameworks/Libraries -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-cyan-500/20 transition-shadow">
+                    <h3 class="text-xl font-semibold text-cyan-400 mb-3">Frameworks/Libraries</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>React.js</li>
+                        <li>Node.js</li>
+                        <li>SpringBoot</li>
+                        <li>Keras</li>
+                        <li>TensorFlow</li>
+                    </ul>
+                </div>
+                <!-- Developer Tools -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-teal-500/20 transition-shadow">
+                    <h3 class="text-xl font-semibold text-teal-400 mb-3">Tools & Databases</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>IntelliJ IDEA</li>
+                        <li>GitHub</li>
+                        <li>Vs Code</li>
+                        <li>MySQL</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center text-white mb-10">Personal Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Stock Price Prediction -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-xl flex flex-col hover:shadow-cyan-500/20 transition-shadow">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-2">Stock Price Prediction</h3>
+                    <p class="text-gray-400 flex-grow mb-4">
+                        A deep learning model using LSTM networks to predict future stock prices based on historical time series data.
+                    </p>
+                    <div class="mt-auto">
+                        <span class="text-sm text-gray-500">Python, Keras, TensorFlow, Streamlit</span>
+                        <a href="https://github.com/Sujal5572/Stock-Price-Prediction-Model.git" class="mt-4 inline-block px-6 py-3 bg-teal-600 text-white font-semibold rounded-full hover:bg-teal-500 transition-colors">
+                            Project Link
+                        </a>
+                    </div>
+                </div>
+                <!-- Project 2: Social Media Website -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-xl flex flex-col hover:shadow-teal-500/20 transition-shadow">
+                    <h3 class="text-2xl font-bold text-teal-400 mb-2">Social Media Website</h3>
+                    <p class="text-gray-400 flex-grow mb-4">
+                        A full-stack social media platform with user authentication, a dynamic feed with posts, likes, comments, and a user profile page.
+                    </p>
+                    <div class="mt-auto">
+                        <span class="text-sm text-gray-500">NodeJs, MySQL, React.Js, React-Query, Context API</span>
+                        <a href="https://github.com/Sujal5572/Social-Site.git" class="mt-4 inline-block px-6 py-3 bg-cyan-600 text-white font-semibold rounded-full hover:bg-cyan-500 transition-colors">
+                            Project Link
+                        </a>
+                    </div>
+                </div>
+                <!-- Project 3: Flixx (Movie Website) -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-xl flex flex-col hover:shadow-cyan-500/20 transition-shadow">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-2">Flixx (Movie Website)</h3>
+                    <p class="text-gray-400 flex-grow mb-4">
+                        A responsive web application for browsing and displaying movie information, designed with a clean UI and dynamic content population.
+                    </p>
+                    <div class="mt-auto">
+                        <span class="text-sm text-gray-500">HTML, CSS, JavaScript</span>
+                        <a href="https://grand-pavlova-07817b.netlify.app/" class="mt-4 inline-block px-6 py-3 bg-teal-600 text-white font-semibold rounded-full hover:bg-teal-500 transition-colors">
+                            Project Link
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Experience Section -->
+        <section id="education-experience" class="py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Education -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-3xl font-bold text-teal-400 mb-6">Education</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">National Institute of Technology, Patna</h3>
+                            <p class="text-gray-400">B.Tech, Electronics and Communication Engineering</p>
+                            <p class="text-gray-500">2021 - 2025 | CGPA: 7.85</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">R.P.S Public School, Patna</h3>
+                            <p class="text-gray-400">Central Board of Secondary Education, Bihar</p>
+                            <p class="text-gray-500">2021 | Percentage: 80</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">R.P.S Public School, Patna</h3>
+                            <p class="text-gray-400">Central Board of Secondary Education, Bihar</p>
+                            <p class="text-gray-500">2019 | Percentage: 88</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Experience -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-3xl font-bold text-cyan-400 mb-6">Experience</h2>
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold text-white">NIELIT | Intern</h3>
+                        <p class="text-gray-500">Jan - July 2025</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-400">
+                            <li>Worked on real-world applications and projects, applying $AI/MI$ models for data analysis and automation.</li>
+                            <li>Learned cybersecurity fundamentals, including risk assessment and security best practices.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-16">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center text-white mb-10">Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-teal-500/20 transition-shadow">
+                    <h3 class="text-xl font-semibold text-teal-400 mb-2">Programming in Java</h3>
+                    <p class="text-gray-400">Among the top 5 percent of students in the "Programming in Java" course held by IIT Kharagpur.</p>
+                    <p class="text-gray-500 text-sm mt-2">Jan-April 2023</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-cyan-500/20 transition-shadow">
+                    <h3 class="text-xl font-semibold text-cyan-400 mb-2">Football Competition</h3>
+                    <p class="text-gray-400">1st runner-up (Football) in the Inter School Sports and Games Competition.</p>
+                    <p class="text-gray-500 text-sm mt-2">2018-19</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Get in Touch</h2>
+            <p class="text-lg text-gray-400 max-w-xl mx-auto mb-8">
+                I'm open to new opportunities and collaborations. Feel free to reach out to me!
+            </p>
+            <a href="mailto:sujalarya17@gmail.com" class="inline-flex items-center space-x-2 px-8 py-4 text-white text-lg font-semibold bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full shadow-lg hover:from-teal-400 hover:to-cyan-400 transition-all duration-300 transform hover:scale-105">
+                <!-- Email Icon SVG -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <span>sujalarya17@gmail.com</span>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-6 mt-16">
+        <div class="container mx-auto px-4 text-center text-gray-500">
+            &copy; 2025 Sujal Arya. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
